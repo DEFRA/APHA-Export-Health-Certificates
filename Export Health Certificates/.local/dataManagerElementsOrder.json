@@ -50,6 +50,104 @@
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/Process Subflows/Send Email.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strBearerToken&Sequence_1",
+        "strTenantID&Sequence_3",
+        "strClientID&Sequence_3",
+        "strClientSecret&Sequence_3",
+        "strTenancy&Sequence_3",
+        "strSite&Sequence_3",
+        "strSiteID&Sequence_3",
+        "strListID&Sequence_3",
+        "clientID&Sequence_3",
+        "clientSecret&Sequence_3",
+        "strListDisplayName&Sequence_3",
+        "strEmailAccount&Sequence_2",
+        "strSubject&Sequence_2",
+        "strEmailBody&Sequence_2",
+        "strRecipients&Sequence_2",
+        "strAttachments&Sequence_2",
+        "g_arrCaseID&261f68f5-e136-4dce-95f8-53920c28ed4b",
+        "g_Config&261f68f5-e136-4dce-95f8-53920c28ed4b",
+        "g_swProcessingTimer&261f68f5-e136-4dce-95f8-53920c28ed4b",
+        "g_TransactionItem&261f68f5-e136-4dce-95f8-53920c28ed4b",
+        "g_intExitPoint&261f68f5-e136-4dce-95f8-53920c28ed4b"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/Process Subflows/MapWeb.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "g_arrCaseID&261f68f5-e136-4dce-95f8-53920c28ed4b",
+        "g_Config&261f68f5-e136-4dce-95f8-53920c28ed4b",
+        "g_swProcessingTimer&261f68f5-e136-4dce-95f8-53920c28ed4b",
+        "g_TransactionItem&261f68f5-e136-4dce-95f8-53920c28ed4b",
+        "g_intExitPoint&261f68f5-e136-4dce-95f8-53920c28ed4b"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_strPostCodeFilepath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/Process Subflows/Postcodes.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "g_arrCaseID&261f68f5-e136-4dce-95f8-53920c28ed4b",
+        "g_Config&261f68f5-e136-4dce-95f8-53920c28ed4b",
+        "g_swProcessingTimer&261f68f5-e136-4dce-95f8-53920c28ed4b",
+        "g_TransactionItem&261f68f5-e136-4dce-95f8-53920c28ed4b",
+        "g_intExitPoint&261f68f5-e136-4dce-95f8-53920c28ed4b",
+        "jsonBody&Sequence_1",
+        "strResponse&Sequence_1",
+        "intResponse&Sequence_1",
+        "jsonResponse&Sequence_1",
+        "dtPostCodes&Sequence_1",
+        "dictPostCodes&Sequence_1",
+        "listPostCodes&Sequence_1",
+        "strPostcode&Sequence_5",
+        "strPostcode&Sequence_6"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_strPostCodeFilepath"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/Process Subflows/SharePoint.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strSiteID&Sequence_1",
+        "strListID&Sequence_1",
+        "strBearerToken&Sequence_1",
+        "strSPOLFilePath&Sequence_3",
+        "strSaveToFilePath&Sequence_3",
+        "strTenantID&Sequence_2",
+        "strClientID&Sequence_2",
+        "strClientSecret&Sequence_2",
+        "strTenancy&Sequence_2",
+        "strSite&Sequence_2",
+        "clientID&Sequence_2",
+        "clientSecret&Sequence_2",
+        "strListDisplayName&Sequence_2",
+        "g_arrCaseID&261f68f5-e136-4dce-95f8-53920c28ed4b",
+        "g_Config&261f68f5-e136-4dce-95f8-53920c28ed4b",
+        "g_swProcessingTimer&261f68f5-e136-4dce-95f8-53920c28ed4b",
+        "g_TransactionItem&261f68f5-e136-4dce-95f8-53920c28ed4b",
+        "g_intExitPoint&261f68f5-e136-4dce-95f8-53920c28ed4b"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
     }
   ]
 }

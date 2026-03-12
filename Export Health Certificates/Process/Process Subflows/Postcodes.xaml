@@ -126,10 +126,9 @@
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Example_Subflow" sap:VirtualizedContainerService.HintSize="892.8,2956" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Csv PostCodes" sap:VirtualizedContainerService.HintSize="892.8,3269.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="njl:JObject" Name="jsonBody" />
-      <Variable x:TypeArguments="njl:JArray" Name="jarrPostcodes" />
       <Variable x:TypeArguments="x:String" Name="strResponse" />
       <Variable x:TypeArguments="x:Int32" Name="intResponse" />
       <Variable x:TypeArguments="njl:JObject" Name="jsonResponse" />
@@ -142,8 +141,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadCsvFile DataTable="[dtPostCodes]" Delimitator="Comma" DisplayName="Read CSV" FilePath="[in_strPostCodeFilepath]" sap:VirtualizedContainerService.HintSize="502,190.8" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
-    <Assign sap:VirtualizedContainerService.HintSize="502,114.4" sap2010:WorkflowViewState.IdRef="Assign_14">
+    <ui:ReadCsvFile DataTable="[dtPostCodes]" Delimitator="Comma" DisplayName="Read CSV - postcodes csv" FilePath="[in_strPostCodeFilepath]" sap:VirtualizedContainerService.HintSize="638,190.8" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+    <Assign DisplayName="Assign - init new list" sap:VirtualizedContainerService.HintSize="638,114.4" sap2010:WorkflowViewState.IdRef="Assign_14">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(x:String)">[listPostCodes]</OutArgument>
       </Assign.To>
@@ -151,7 +150,7 @@
         <InArgument x:TypeArguments="scg:List(x:String)">[new list (of string)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtPostCodes]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="502,532" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtPostCodes]" DisplayName="For Each Row in Data Table - cycle through postcodes csv" sap:VirtualizedContainerService.HintSize="638,532" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
@@ -176,15 +175,20 @@
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
-    <Assign sap:VirtualizedContainerService.HintSize="502,114.4" sap2010:WorkflowViewState.IdRef="Assign_13">
+    <Assign sap2010:Annotation.AnnotationText="This reduces the number of parameters into postcodes.io&#xD;&#xA;speeds up the API request by removing duplication" DisplayName="Assign - remove duplicates" sap:VirtualizedContainerService.HintSize="638,159.2" sap2010:WorkflowViewState.IdRef="Assign_13">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(x:String)">[listPostCodes]</OutArgument>
       </Assign.To>
       <Assign.Value>
         <InArgument x:TypeArguments="scg:List(x:String)">[listPostCodes.Distinct().ToList]</InArgument>
       </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="502,114.4" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Assign - init jobject" sap:VirtualizedContainerService.HintSize="638,114.4" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="njl:JObject">[jsonBody]</OutArgument>
       </Assign.To>
@@ -192,48 +196,15 @@
         <InArgument x:TypeArguments="njl:JObject">[new JObject]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="502,114.4" sap2010:WorkflowViewState.IdRef="Assign_3">
-      <Assign.To>
-        <OutArgument x:TypeArguments="njl:JArray">[jarrPostcodes]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="njl:JArray">[new JArray]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="502,366.8" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[listPostCodes]">
-      <ui:ForEach.Body>
-        <ActivityAction x:TypeArguments="x:String">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
-          </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,219.6" sap2010:WorkflowViewState.IdRef="Sequence_9">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="382,159.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Add">
-              <InvokeMethod.TargetObject>
-                <InArgument x:TypeArguments="njl:JArray">[jarrPostcodes]</InArgument>
-              </InvokeMethod.TargetObject>
-              <InArgument x:TypeArguments="x:String">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="currentText" />
-              </InArgument>
-            </InvokeMethod>
-          </Sequence>
-        </ActivityAction>
-      </ui:ForEach.Body>
-    </ui:ForEach>
-    <Assign sap:VirtualizedContainerService.HintSize="502,114.4" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign DisplayName="Assign - add list of postcodes to jsonbody" sap:VirtualizedContainerService.HintSize="638,114.4" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="njl:JToken">[jsonBody("postcodes")]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="njl:JToken">[jarrPostcodes]</InArgument>
+        <InArgument x:TypeArguments="njl:JToken">[New JArray(listPostcodes)]</InArgument>
       </Assign.Value>
     </Assign>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="502,123.2" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[jsonBody.ToString]" />
-    <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" AuthenticationType="None" Body="[jsonBody.tostring]" BodyFormat="application/json" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="https://api.postcodes.io/postcodes" sap:VirtualizedContainerService.HintSize="502,103.2" sap2010:WorkflowViewState.IdRef="HttpClient_2" Method="POST" Result="[strResponse]" StatusCode="[intResponse]" TimeoutMS="6000">
+    <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" AuthenticationType="None" Body="[jsonBody.tostring]" BodyFormat="application/json" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="https://api.postcodes.io/postcodes" sap:VirtualizedContainerService.HintSize="638,103.2" sap2010:WorkflowViewState.IdRef="HttpClient_2" Method="POST" Result="[strResponse]" StatusCode="[intResponse]" TimeoutMS="6000">
       <ui:HttpClient.Attachments>
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
       </ui:HttpClient.Attachments>
@@ -250,11 +221,10 @@
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
       </ui:HttpClient.UrlSegments>
     </ui:HttpClient>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="502,123.2" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[intResponse.ToString + &quot; :: &quot; + strResponse]" />
-    <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="502,123.2" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsonResponse]" JsonString="[strResponse]" />
-    <ui:AddDataColumn x:TypeArguments="x:String" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" Unique="{x:Null}" AllowDBNull="True" ColumnName="Long" DataTable="[dtPostCodes]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="502,222" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" MaxLength="-1" />
-    <ui:AddDataColumn x:TypeArguments="x:String" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" Unique="{x:Null}" AllowDBNull="True" ColumnName="Lat" DataTable="[dtPostCodes]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="502,222" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3" MaxLength="-1" />
-    <Assign DisplayName="Assign - create dictionary lookup" sap:VirtualizedContainerService.HintSize="502,115.6" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="638,123.2" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsonResponse]" JsonString="[strResponse]" />
+    <ui:AddDataColumn x:TypeArguments="x:String" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" Unique="{x:Null}" AllowDBNull="True" ColumnName="Long" DataTable="[dtPostCodes]" DisplayName="Add Long to the DataTable" sap:VirtualizedContainerService.HintSize="638,222" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" MaxLength="-1" />
+    <ui:AddDataColumn x:TypeArguments="x:String" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" Unique="{x:Null}" AllowDBNull="True" ColumnName="Lat" DataTable="[dtPostCodes]" DisplayName="Add Data Column - lat" sap:VirtualizedContainerService.HintSize="638,222" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3" MaxLength="-1" />
+    <Assign DisplayName="Assign - create dictionary lookup" sap:VirtualizedContainerService.HintSize="638,115.6" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, scg:List(sd:DataRow))">[dictPostCodes]</OutArgument>
       </Assign.To>
@@ -264,7 +234,7 @@
     ToDictionary(Function(g) g.Key, Function(g) g.ToList)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="njl:JObject" CurrentIndex="{x:Null}" DisplayName="For Each currentJObject" sap:VirtualizedContainerService.HintSize="502,56.8" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[jsonResponse(&quot;result&quot;)]">
+    <ui:ForEach x:TypeArguments="njl:JObject" CurrentIndex="{x:Null}" DisplayName="For Each currentJObject" sap:VirtualizedContainerService.HintSize="638,1052.8" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[jsonResponse(&quot;result&quot;)]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="njl:JObject">
           <ActivityAction.Argument>
@@ -276,7 +246,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[currentJObject(&quot;result&quot;).HasValues]" sap:VirtualizedContainerService.HintSize="570,845.6" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[currentJObject(&quot;result&quot;).HasValues]" DisplayName="If - check null or empty" sap:VirtualizedContainerService.HintSize="570,845.6" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
                 <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,592.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <Sequence.Variables>
@@ -348,11 +318,11 @@
       </ui:ForEach.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:WriteCsvFile AddHeaders="True" DataTable="[dtPostCodes]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[in_strPostCodeFilepath]" sap:VirtualizedContainerService.HintSize="502,182" sap2010:WorkflowViewState.IdRef="WriteCsvFile_1" ShouldQuote="True" />
+    <ui:WriteCsvFile AddHeaders="True" DataTable="[dtPostCodes]" Delimitator="Comma" DisplayName="Write CSV - overwrite" FilePath="[in_strPostCodeFilepath]" sap:VirtualizedContainerService.HintSize="638,182" sap2010:WorkflowViewState.IdRef="WriteCsvFile_1" ShouldQuote="True" />
   </Sequence>
 </Activity>
