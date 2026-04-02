@@ -85,11 +85,11 @@
       "Path": "Process/Process Subflows/MapWeb.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "g_arrCaseID&261f68f5-e136-4dce-95f8-53920c28ed4b",
-        "g_Config&261f68f5-e136-4dce-95f8-53920c28ed4b",
-        "g_swProcessingTimer&261f68f5-e136-4dce-95f8-53920c28ed4b",
-        "g_TransactionItem&261f68f5-e136-4dce-95f8-53920c28ed4b",
-        "g_intExitPoint&261f68f5-e136-4dce-95f8-53920c28ed4b"
+        "g_arrCaseID&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f",
+        "g_Config&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f",
+        "g_swProcessingTimer&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f",
+        "g_TransactionItem&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f",
+        "g_intExitPoint&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f"
       ],
       "ArgumentsSectionElementsOrder": [
         "in_strPostCodeFilepath"
@@ -126,6 +126,11 @@
       "Path": "Process/Process Subflows/SharePoint.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "g_arrCaseID&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f",
+        "g_Config&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f",
+        "g_swProcessingTimer&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f",
+        "g_TransactionItem&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f",
+        "g_intExitPoint&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f",
         "strSiteID&Sequence_1",
         "strListID&Sequence_1",
         "strBearerToken&Sequence_1",
@@ -138,12 +143,21 @@
         "strSite&Sequence_2",
         "clientID&Sequence_2",
         "clientSecret&Sequence_2",
-        "strListDisplayName&Sequence_2",
-        "g_arrCaseID&261f68f5-e136-4dce-95f8-53920c28ed4b",
-        "g_Config&261f68f5-e136-4dce-95f8-53920c28ed4b",
-        "g_swProcessingTimer&261f68f5-e136-4dce-95f8-53920c28ed4b",
-        "g_TransactionItem&261f68f5-e136-4dce-95f8-53920c28ed4b",
-        "g_intExitPoint&261f68f5-e136-4dce-95f8-53920c28ed4b"
+        "strListDisplayName&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Single Sign on.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "g_arrCaseID&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f",
+        "g_Config&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f",
+        "g_swProcessingTimer&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f",
+        "g_TransactionItem&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f",
+        "g_intExitPoint&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f"
       ],
       "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
