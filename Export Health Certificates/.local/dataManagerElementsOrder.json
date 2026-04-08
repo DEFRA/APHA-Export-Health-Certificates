@@ -153,11 +153,12 @@
       "Path": "Single Sign on.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "g_arrCaseID&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f",
-        "g_Config&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f",
-        "g_swProcessingTimer&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f",
-        "g_TransactionItem&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f",
-        "g_intExitPoint&c4bc2abb-ad22-42fc-b4f8-5e9a6a6e4c0f"
+        "strUserName&Sequence_2",
+        "g_arrCaseID&87e6b48d-4f56-4521-9c62-5389aa6aca35",
+        "g_Config&87e6b48d-4f56-4521-9c62-5389aa6aca35",
+        "g_swProcessingTimer&87e6b48d-4f56-4521-9c62-5389aa6aca35",
+        "g_TransactionItem&87e6b48d-4f56-4521-9c62-5389aa6aca35",
+        "g_intExitPoint&87e6b48d-4f56-4521-9c62-5389aa6aca35"
       ],
       "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
