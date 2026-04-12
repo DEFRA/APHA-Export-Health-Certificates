@@ -18,6 +18,12 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "g_eleMap&bbab6863-054c-46b7-8c3a-43b517d94db6",
+        "g_arrCaseID&bbab6863-054c-46b7-8c3a-43b517d94db6",
+        "g_Config&bbab6863-054c-46b7-8c3a-43b517d94db6",
+        "g_swProcessingTimer&bbab6863-054c-46b7-8c3a-43b517d94db6",
+        "g_TransactionItem&bbab6863-054c-46b7-8c3a-43b517d94db6",
+        "g_intExitPoint&bbab6863-054c-46b7-8c3a-43b517d94db6",
         "SystemException&StateMachine_1",
         "BusinessException&StateMachine_1",
         "TransactionNumber&StateMachine_1",
@@ -38,12 +44,7 @@
         "boolFolderExists&Sequence_42",
         "boolShouldStop&Sequence_25",
         "dateCaseStartTime&State_3",
-        "strCaseIDText&Sequence_28",
-        "g_arrCaseID&f7779605-acaa-4d31-b24c-be88d2dff6f7",
-        "g_Config&f7779605-acaa-4d31-b24c-be88d2dff6f7",
-        "g_swProcessingTimer&f7779605-acaa-4d31-b24c-be88d2dff6f7",
-        "g_TransactionItem&f7779605-acaa-4d31-b24c-be88d2dff6f7",
-        "g_intExitPoint&f7779605-acaa-4d31-b24c-be88d2dff6f7"
+        "strCaseIDText&Sequence_28"
       ],
       "ArgumentsSectionElementsOrder": [
         "in_boolUnattended"
@@ -82,7 +83,7 @@
       "AddedNamespaces": null
     },
     {
-      "Path": "Process/Process Subflows/MapWeb.xaml",
+      "Path": "Process/Process Subflows/ARCHIVE - MapWeb.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
         "g_arrCaseID&f7779605-acaa-4d31-b24c-be88d2dff6f7",
@@ -150,19 +151,35 @@
       "AddedNamespaces": null
     },
     {
-      "Path": "Single Sign on.xaml",
+      "Path": "Process/Process Subflows/MapWeb1.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "g_arrCaseID&f7779605-acaa-4d31-b24c-be88d2dff6f7",
-        "g_Config&f7779605-acaa-4d31-b24c-be88d2dff6f7",
-        "g_swProcessingTimer&f7779605-acaa-4d31-b24c-be88d2dff6f7",
-        "g_TransactionItem&f7779605-acaa-4d31-b24c-be88d2dff6f7",
-        "g_intExitPoint&f7779605-acaa-4d31-b24c-be88d2dff6f7",
+        "g_eleMap&bbab6863-054c-46b7-8c3a-43b517d94db6",
+        "g_arrCaseID&bbab6863-054c-46b7-8c3a-43b517d94db6",
+        "g_Config&bbab6863-054c-46b7-8c3a-43b517d94db6",
+        "g_swProcessingTimer&bbab6863-054c-46b7-8c3a-43b517d94db6",
+        "g_TransactionItem&bbab6863-054c-46b7-8c3a-43b517d94db6",
+        "g_intExitPoint&bbab6863-054c-46b7-8c3a-43b517d94db6",
         "strUserName&Sequence_2"
       ],
       "ArgumentsSectionElementsOrder": [
         "in_strPostCodeFilepath"
       ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/Process Subflows/MapWeb2.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "g_arrCaseID&bbab6863-054c-46b7-8c3a-43b517d94db6",
+        "g_Config&bbab6863-054c-46b7-8c3a-43b517d94db6",
+        "g_swProcessingTimer&bbab6863-054c-46b7-8c3a-43b517d94db6",
+        "g_TransactionItem&bbab6863-054c-46b7-8c3a-43b517d94db6",
+        "g_intExitPoint&bbab6863-054c-46b7-8c3a-43b517d94db6",
+        "g_eleMap&bbab6863-054c-46b7-8c3a-43b517d94db6"
+      ],
+      "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     }
