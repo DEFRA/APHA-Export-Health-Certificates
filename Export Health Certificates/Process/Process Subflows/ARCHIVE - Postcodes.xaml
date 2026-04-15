@@ -126,7 +126,7 @@
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Csv PostCodes" sap:VirtualizedContainerService.HintSize="1909.6000000000001,3566.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Csv PostCodes" sap:VirtualizedContainerService.HintSize="1909.6000000000001,3269.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="njl:JObject" Name="jsonBody" />
       <Variable x:TypeArguments="x:String" Name="strResponse" />
@@ -222,15 +222,8 @@
       </ui:HttpClient.UrlSegments>
     </ui:HttpClient>
     <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="638,123.2" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsonResponse]" JsonString="[strResponse]" />
-    <ui:AppendLine File="{x:Null}" DisplayName="Append Line" FileName="newwork.txt" sap:VirtualizedContainerService.HintSize="638,167.6" sap2010:WorkflowViewState.IdRef="AppendLine_1" Text="[jsonResponse.ToString]" UseDefaultEncoding="False" />
     <ui:AddDataColumn x:TypeArguments="x:String" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" Unique="{x:Null}" AllowDBNull="True" ColumnName="Long" DataTable="[dtPostCodes]" DisplayName="Add Long to the DataTable" sap:VirtualizedContainerService.HintSize="638,222" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" MaxLength="-1" />
-    <ui:AddDataColumn x:TypeArguments="x:String" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" Unique="{x:Null}" AllowDBNull="True" ColumnName="Lat" DataTable="[dtPostCodes]" DisplayName="Add Data Column - lat" sap:VirtualizedContainerService.HintSize="334,190" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3">
-      <ui:AddDataColumn.MaxLength>
-        <InArgument x:TypeArguments="x:Int32">
-          <Literal x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="Literal`1_1" Value="-1" />
-        </InArgument>
-      </ui:AddDataColumn.MaxLength>
-    </ui:AddDataColumn>
+    <ui:AddDataColumn x:TypeArguments="x:String" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" Unique="{x:Null}" AllowDBNull="True" ColumnName="Lat" DataTable="[dtPostCodes]" DisplayName="Add Data Column - lat" sap:VirtualizedContainerService.HintSize="638,222" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3" MaxLength="-1" />
     <Assign DisplayName="Assign - create dictionary lookup" sap:VirtualizedContainerService.HintSize="638,115.6" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, scg:List(sd:DataRow))">[dictPostCodes]</OutArgument>
@@ -330,17 +323,6 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="638,343.6" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="468,242" sap2010:WorkflowViewState.IdRef="Sequence_9">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:WriteCsvFile AddHeaders="True" DataTable="[dtPostCodes]" Delimitator="Comma" DisplayName="Write CSV - overwrite" FilePath="[in_strPostCodeFilepath]" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCsvFile_1" ShouldQuote="True" />
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
+    <ui:WriteCsvFile AddHeaders="True" DataTable="[dtPostCodes]" Delimitator="Comma" DisplayName="Write CSV - overwrite" FilePath="[in_strPostCodeFilepath]" sap:VirtualizedContainerService.HintSize="638,182" sap2010:WorkflowViewState.IdRef="WriteCsvFile_1" ShouldQuote="True" />
   </Sequence>
 </Activity>
